@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+ class Program
+ {
+ static void Main(string[] args)
+ {
+ int DV = 0;
+ string MICEDU = null;
+ Program ob=new Program ();
+ Console.Write("DIGITE 9 PRIMEROS DÍGITOS DE SU CÉDULA: ");
+ MICEDU = Console.ReadLine();
+ DV = ob.ci(MICEDU);
+ Console.Write("EL DÍGITO VERIFICADOR ES: " + DV);
+ Console.WriteLine();
+ Console.Write("Pulse una Tecla:");
+ Console.ReadLine();
+ }
+ public int ci(string CED)
+ {
+ int SUMP = 0;
+ int SUMI = 0;
+ int ST = 0;
+ int AUX = 0;
+ int P = 0;
+ int DIGITO = 0;
+ // SUMATORIA DE PARES
+ SUMP = 0;
+ SUMI = 0;
+ for (P = 2; P <=8; P += 2)
+ {
+ }
+ // SUMATORIA DE IMPARES
+ for (P = 1; P <= 9; P += 2)
+ {
+ AUX = int.Parse (CED.Substring (P-1,1))* 2;
+ if (AUX > 9)
+ AUX = AUX - 9;
+ SUMI = SUMI + AUX;
+ }
+ // OBTENCIÓN DE DÍGITO
+ ST = SUMP + SUMI;
+ DIGITO = 10 - (ST % 10);
+ if (DIGITO == 10)
+ DIGITO = 0;
+ return DIGITO;
+ }
+ }
+}
+
+ SUMP = SUMP + int.Parse(CED.Substring(P-1, 1));
